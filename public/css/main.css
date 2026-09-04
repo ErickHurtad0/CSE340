@@ -1,30 +1,291 @@
-html, body {
-    background-color: lightblue;
-    font-family: Arial, sans-serif;
+/* =========================
+   RESET & GLOBAL STYLES
+   ========================= */
+
+* {
+    box-sizing: border-box;
     margin: 0;
-    padding: 20px;
+    padding: 0;
+}
+
+:root {
+    --primary: #174a5b;
+    --primary-dark: #123845;
+    --secondary: #236b5c;
+    --accent: #b45309;
+    --background: #f8faf9;
+    --white: #ffffff;
+    --text: #17202a;
+    --text-light: #374151;
+    --border: #cbd5d1;
+}
+
+html {
+    scroll-behavior: smooth;
 }
 
 body {
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.6;
+    color: var(--text);
+    background-color: var(--background);
+    min-height: 100vh;
+}
+
+
+/* =========================
+   HEADER & NAVIGATION
+   ========================= */
+
+header {
+    width: 100%;
+    background-color: #173f4f;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+}
+
+nav {
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 1rem 1.5rem;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color: #173f4f;
+}
+
+nav ul {
+    list-style: none;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    gap: 1rem;
+
+    margin: 0;
+    padding: 0;
+}
+
+nav li {
+    list-style: none;
+}
+
+nav a {
+    display: inline-block;
+
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 700;
+
+    padding: 0.7rem 1.2rem;
+    border-radius: 6px;
+
+    transition: background-color 0.2s ease,
+                color 0.2s ease;
+}
+
+nav a:hover,
+nav a:focus {
+    background-color: #ffffff;
+    color: #173f4f;
+
+    outline: none;
+}
+
+nav a:focus {
+    outline: 3px solid #f4a261;
+    outline-offset: 2px;
+}
+
+/* =========================
+   MAIN CONTENT
+   ========================= */
+
+main {
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 2rem 1.5rem 4rem;
+}
+
+
+/* =========================
+   PAGE HERO
+   ========================= */
+
+.page-hero {
+    text-align: center;
+
+    padding: 3rem 1rem 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.page-hero h1 {
+    color: var(--primary);
+
+    font-size: clamp(2rem, 5vw, 3rem);
+    line-height: 1.2;
+
+    margin-bottom: 1rem;
+}
+
+.page-hero p {
+    max-width: 650px;
+    margin: 0 auto;
+
+    color: var(--text-light);
+    font-size: 1.1rem;
+}
+
+
+/* =========================
+   CATEGORY CARDS
+   ========================= */
+
+.categories {
+    display: grid;
+
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+
+    gap: 1.5rem;
+
+    margin-top: 1rem;
+}
+
+.category-card {
+    background-color: var(--white);
+
+    border: 1px solid var(--border);
+    border-radius: 10px;
+
+    padding: 2rem;
+
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.07);
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.category-card:hover {
+    transform: translateY(-4px);
+
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+.category-card h2 {
+    color: var(--primary);
+
+    font-size: 1.6rem;
+
+    margin-bottom: 0.75rem;
+}
+
+.category-card p {
+    color: var(--text-light);
+}
+
+
+/* =========================
+   IMAGES
+   ========================= */
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+
+/* =========================
+   FOOTER
+   ========================= */
+
+footer {
+    background-color: var(--primary-dark);
+
+    color: var(--white);
+
+    text-align: center;
+
+    padding: 2rem 1rem;
+
+    margin-top: auto;
+}
+
+footer p {
+    margin: 0;
+}
+
+
+/* =========================
+   MOBILE
+   ========================= */
+
+@media (max-width: 700px) {
+
     nav {
-        ul {
-            list-style-type: none;
-            padding: 0;
-        }
+        flex-direction: column;
 
-        li {
-            display: inline;
-            margin-right: 15px;
-        }
+        gap: 0.25rem;
 
-        a {
-            text-decoration: none;
-            color: #333;
-            font-weight: bold;
-
-            &:hover {
-                color: #0066cc;
-            }
-        }
+        padding: 1rem;
     }
-}                
+
+    nav a {
+        width: 100%;
+
+        text-align: center;
+
+        padding: 0.6rem 1rem;
+    }
+
+    nav ul {
+    flex-direction: column;
+    width: 100%;
+}
+
+    main {
+        padding: 1rem 1rem 3rem;
+    }
+
+    .page-hero {
+        padding: 2rem 0.5rem 1.5rem;
+    }
+
+    .page-hero h1 {
+        font-size: 2rem;
+    }
+
+    .page-hero p {
+        font-size: 1rem;
+    }
+
+    .categories {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .category-card {
+        padding: 1.5rem;
+    }
+}
+
+
+/* =========================
+   SMALL PHONES
+   ========================= */
+
+@media (max-width: 400px) {
+
+    .page-hero h1 {
+        font-size: 1.7rem;
+    }
+
+    .category-card h2 {
+        font-size: 1.4rem;
+    }
+}
