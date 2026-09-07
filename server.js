@@ -50,6 +50,14 @@ app.get('/categories', async (req, res) => {
     res.render('categories', { title });
 });
 
+const server = app.listen(PORT, () => {
+    console.log(`MY SERVICE PROJECT SERVER IS RUNNING ON PORT ${PORT} `);
+});
+
+server.on('error', (error) => {
+    console.error('SERVER ERROR:', error);
+});
+
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
 });
