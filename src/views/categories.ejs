@@ -1,44 +1,13 @@
 <%- include('partials/header', { title }) %>
 
 <main>
-    <section class="page-hero">
-        <h1><%= title %></h1>
-        <p>Explore service projects by category.</p>
-    </section>
+    <h1><%= title %></h1>
 
-    <section class="categories">
-        <article class="category-card">
-            <h2>Environmental</h2>
-            <p>
-                Projects focused on protecting the environment,
-                improving communities, and caring for natural resources.
-            </p>
-        </article>
-
-        <article class="category-card">
-            <h2>Educational</h2>
-            <p>
-                Projects that support learning, education, tutoring,
-                and opportunities for personal development.
-            </p>
-        </article>
-
-        <article class="category-card">
-            <h2>Community Service</h2>
-            <p>
-                Projects designed to strengthen communities and
-                provide meaningful service to others.
-            </p>
-        </article>
-
-        <article class="category-card">
-            <h2>Health and Wellness</h2>
-            <p>
-                Projects that promote physical, mental, and
-                emotional well-being within the community.
-            </p>
-        </article>
-    </section>
+    <ul>
+        <% categories.forEach(category => { %>
+            <li><%= category.name %></li>
+        <% }); %>
+    </ul>
 </main>
 
 <%- include('partials/footer') %>
