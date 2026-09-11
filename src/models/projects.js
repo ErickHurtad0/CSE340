@@ -1,7 +1,7 @@
 
 import db from './db.js'
 
-async function getAllProjects() {
+const getAllProjects = async () => {
     const sql = `
         SELECT
             service_project.project_id,
@@ -18,8 +18,7 @@ async function getAllProjects() {
     `;
 
     const result = await db.query(sql);
-
     return result.rows;
-}
+};
 
 export { getAllProjects };
